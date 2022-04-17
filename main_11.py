@@ -365,7 +365,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 # подборка статей будет обновляться каждые 1 минут для этого запускается планировщик событий
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=russ_n_port, trigger="interval", minutes=1)
+scheduler.add_job(func=russ_n_port, trigger="interval", minutes=120)
 scheduler.start()
 atexit.register(lambda: scheduler.shutdown())
 
