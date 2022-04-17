@@ -124,8 +124,6 @@ class StoryGen:
     def basic(self, n=-1):
         html = requests.get(self.url).content.decode('utf-8')
         soup = BeautifulSoup(html, 'html.parser')
-        with open ('./extras/soup_extract.html', 'wt', encoding='utf-8') as f:
-            f.write(str(soup))
         content = {
             'language' : self.lang,
             'abstracts' : []
@@ -195,8 +193,6 @@ def reverso_proc(w, lang='russian'):
     url= SLCT_LNG[lang][0]+w+'.html'
     html = requests.get(url).content.decode('utf-8')
     soup = BeautifulSoup(html, 'html.parser')
-    #with open ('soup_07.txt', 'wt', encoding='UTF-8') as f:
-    #    f.write(str(soup))
     wl = []
     for i in soup.find_all('div', class_='blue-box-wrap'):
         if lang=='russian':
